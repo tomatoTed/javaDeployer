@@ -1,13 +1,7 @@
 package com.gx.javaDeployer;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+import java.util.Properties;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,11 +15,14 @@ import org.xml.sax.SAXException;
 
 public class Util {
 	private static  Document doc;
-	/**
-	 * 创建文件并写入内容
-	 * @author gaoxiang @date 2016年8月23日
-	 */
-	public static void writeFile(String filePath,String text){
+	private static Properties prop;
+	private static String configFile;
+
+	public static void setConfigFile(String configFile) {
+		Util.configFile = configFile;
+	}
+
+	public static void writeFile(String filePath, String text){
 		try {
 			File file=new File(filePath);
 			if(!file.exists()){
@@ -132,7 +129,7 @@ public class Util {
 	         DocumentBuilder db;
 			try {
 				db = dbf.newDocumentBuilder();
-				File file=new File(Data.localAppHome+"/pom.xml");
+				File file=new File(Data.localAppDir +"/pom.xml");
 				doc = db.parse(file);
 			} catch (ParserConfigurationException e) {
 				e.printStackTrace();
@@ -183,10 +180,22 @@ public class Util {
 			return "GBK";
 		}
 	}
-	public static void main(String[] args) throws UnsupportedEncodingException {
-		System.out.println(new String("娌℃湁閭ｄ釜鏂囦欢鎴栫洰褰�".getBytes("GBK")));
+	public static void main(String[] args) throws IOException {
+		System.out.println(System.getProperty("user.dir")+"/config.properties");
 	}
-
+	public static String getValueFromProp(String key){
+		if(prop==null){
+			if(configFile==null)configFile=System.getProperty("user.dir")+"/config.properties";
+			File defaultFile=new File(configFile);
+			prop = new Properties();
+			try {
+				prop.load(new FileInputStream(defaultFile));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return prop.getProperty(key);
+	}
 	
 
 }

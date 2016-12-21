@@ -7,28 +7,30 @@ import java.util.Map;
  * 静态数据
  */
 public class Data {
-	public static String host="abc.com";
-	public static int port=12345;
-	public static String username="web_tomcat";
-	public static String password="qwerfdsa";
+	public static final String host=Util.getValueFromProp("host");
+	public static final int port=Integer.valueOf(Util.getValueFromProp("port"));
+	public static final String username=Util.getValueFromProp("username");
+	public static final String password=Util.getValueFromProp("password");
 
-	public static String localAppHome="d:\\testworkspace\\kdgts";//本地工程路径
-	public static final String localAppName=Util.getValueFromPom("build/finalName");
-	public static String localMavenCommand="cd "+localAppHome+";mvn clean install";//运行本地maven命令
-	public static String localSvnCommand="cd "+localAppHome+";svn diff|findstr /b Index:";//运行本地svn命令
-	public static String localWarFile=localAppHome+"/target/"+localAppName+".war";//本地待上传war包路径
-	public static String localBuildHome=localAppHome+"/target/"+localAppName;//本地待上传class目录(target目录下)
-	public static String localIgnoreFile=localAppHome+"/.svn/ignore.txt";//本地忽略文件记录表
+	public static final String localAppDir =Util.getValueFromProp("localAppDir");//本地工程路径
+	public static final String localAppName=Util.getValueFromProp("localAppName");//本地工程名
+	public static final String remoteAppName=Util.getValueFromProp("remoteAppName");//应用名称(webapps目录下的)
+	public static final String remoteTomcatDir=Util.getValueFromProp("remoteTomcatDir");//远程tomcat路径
+	public static final String remoteTempDir=Util.getValueFromProp("remoteTempDir");//远程存放war路径
+
+	public static final String localMavenCommand="cd "+ localAppDir +";mvn clean install";//运行本地maven命令
+	public static final String localSvnCommand="cd "+ localAppDir +";svn diff|findstr /b Index:";//运行本地svn命令
+	public static final String localWarFile= localAppDir +"/target/"+localAppName+".war";//本地待上传war包路径
+	public static final String localBuildDir = localAppDir +"/target/"+localAppName;//本地待上传class目录(target目录下)
+	public static final String localIgnoreFile= localAppDir +"/.svn/ignore.txt";//本地忽略文件记录表
 
 
-	public static String remoteAppName=localAppName;//应用名称(webapps目录下的)
-	public static String remoteTomcatDir="/home/web_tomcat/apache-tomcat"+(localAppName.length()>5?"":"-7.0.62");//远程tomcat路径
-	public static String remoteAppHome=remoteTomcatDir+"/webapps/"+remoteAppName;//远程应用目录
-	public static String remoteTempDir="/home/web_tomcat/remote";//远程存放war路径
-	public static String remoteShell="cd "+remoteTempDir+";sh remote.sh "+remoteTomcatDir+" "+remoteAppName;
-	public static String remoteShutdownShell="cd "+remoteTempDir+";sh shutdown.sh "+remoteTomcatDir;
-	public static String remoteStartupShell="cd "+remoteTempDir+";sh startup.sh "+remoteTomcatDir;
-	public static Map<String,String> codeMap=new HashMap<>();
+
+	public static final String remoteAppDir =remoteTomcatDir+"/webapps/"+remoteAppName;//远程应用目录
+	public static final String remoteShell="cd "+remoteTempDir+";sh remote.sh "+remoteTomcatDir+" "+remoteAppName;
+	public static final String remoteShutdownShell="cd "+remoteTempDir+";sh shutdown.sh "+remoteTomcatDir;
+	public static final String remoteStartupShell="cd "+remoteTempDir+";sh startup.sh "+remoteTomcatDir;
+	public static final Map<String,String> codeMap=new HashMap<>();
 	static{
 		codeMap.put("shutdown server","开始停止服务器");
 		codeMap.put("kill server","强行kill服务器");

@@ -150,18 +150,18 @@ public class Listener {
 		buildFile.setResource(resourceFile);
 		if(resourceFile.matches("^src/main/(java|resources)/.*$")){//classes目录下  "^.+\\.(properties|xml|java|p12)$"
 			buildFile.setBuild(resourceFile.replaceAll("src/main/(java|resources)/","/WEB-INF/classes/").replace(".java", ".class"));
-			buildFile.setLocalPath( Data.localBuildHome+buildFile.getBuild());
+			buildFile.setLocalPath( Data.localBuildDir +buildFile.getBuild());
 			buildFile.setRestart(true);
 		}else if(resourceFile.matches("^src/main/webapp/.*$")){//webapp目录下,静态资源和jsp
 			buildFile.setBuild(resourceFile.replace("src/main/webapp/","/"));
-			buildFile.setLocalPath( Data.localAppHome+"/"+resourceFile);
+			buildFile.setLocalPath( Data.localAppDir +"/"+resourceFile);
 			buildFile.setRestart(false);
 		}else{
 			buildFile.setBuild("/"+resourceFile);
-			buildFile.setLocalPath( Data.localAppHome+"/"+resourceFile);
+			buildFile.setLocalPath( Data.localAppDir +"/"+resourceFile);
 			buildFile.setRestart(false);
 		}
-		buildFile.setRemotePath(Data.remoteAppHome+buildFile.getBuild().replaceAll("/[0-9a-zA-z]+\\.[0-9a-zA-z]+$", ""));
+		buildFile.setRemotePath(Data.remoteAppDir +buildFile.getBuild().replaceAll("/[0-9a-zA-z]+\\.[0-9a-zA-z]+$", ""));
 		return buildFile;
 	}
 	private class BuildFile{
