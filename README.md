@@ -9,12 +9,12 @@
 * webapp版 (**我也很期待呢o(∩_∩)o**)
 
 # 3. 环境介绍
-|环境\版本|GUI-swing|GUI-javaFX|webapp|
-|:------ |:--|:-----|:-|
-|jdk1.7+| yes| $1600 |yes|
-|svn   | yes| yes |yes|
-|maven | yes|  yes|yes|
-|javaFX 2.0+| no|  yes|no|
+| 环境\版本 | GUI-swing | GUI-javaFX | webapp |
+| :----- | :---- |:---- | :---- |
+| jdk1.7+| yes | yes | yes |
+| svn   | yes | yes | yes|
+| maven | yes | yes | yes |
+| javaFX 2.0+ | no | yes | no|
 
 #  4. quick start(GUI-swing版)
 1. 下载这个软件,并且在`config.properties`中配置您服务器相关信息
@@ -34,15 +34,19 @@
 在oracle jdk `Java SE 7 Update 6 `以后,会包含java FX,查看jdk中是否有`jfxrt.jar`即可
 # 6. 截图
 * 本地编译打包阶段
+
 ![](http://i1.piimg.com/567571/6958989758e9be0a.jpg)
 
 * 上传阶段
+
 ![](http://i1.piimg.com/567571/33e2efa0cdcbd431.jpg)
 
 * 备份,删除,拷贝,解压,服务器起停阶段
+
 ![](http://i1.piimg.com/567571/a57052123acf2f8e.jpg)
 
 * 增量部署选择diff文件界面
+
 ![](http://i1.piimg.com/567571/eb20fa97496de05b.jpg)
 # 7. License
 MIT
