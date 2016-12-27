@@ -1,1 +1,0 @@
-java -jar deployer.jar config.properties
