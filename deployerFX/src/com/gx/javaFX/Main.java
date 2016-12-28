@@ -5,6 +5,6 @@ package com.gx.javaFX;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("javaFX");
+        System.out.println("javafx");
     }
 }

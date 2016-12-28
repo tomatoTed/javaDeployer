@@ -1,0 +1,31 @@
+#rightBox{
+    -fx-alignment:center-right;
+    -fx-spacing: 6;
+}
+#row{
+    -fx-background-color: #A1A46D;
+}
+.btn{
+    -fx-padding:4 12;
+    -fx-background-color: rgba(0,0,0,0);/*默认样式为透明*/
+    -fx-background-repeat:no-repeat;/*img不重复*/
+    -fx-background-size:stretch;
+}
+.btn:hover{
+    -fx-background-color: #b1b47D;
+}
+#btn-close{
+    -fx-background-image: url("../img/close32x32.png");
+}
+#btn-set{
+    -fx-background-image: url("../img/set32x32.png");
+    -fx-padding:1 8;
+}
+#btn-github{
+    -fx-background-image: url("../img/github32x32.png");
+    -fx-padding:2 10;
+}
+#title{
+    -fx-font-size: 14pt ;
+    -fx-text-fill: #fff;
+}
