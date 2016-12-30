@@ -28,7 +28,7 @@ import java.io.IOException;
 
 public class UIComponent extends Application {
     private static final String resPath=UIComponent.class.getResource("resources")+"/";
-    private static final String PAGE_INDEX =resPath+"index.html";
+    private static final String PAGE_INDEX =resPath+"index.html?1";
     private static final String CSS=resPath+"css/layout.css";
     private static final Double SIZE_WIDTH=1366.0;
     private static final Double SIZE_HEIGHT=768.0;

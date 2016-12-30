@@ -2,18 +2,35 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css">
     <title>你好</title>
 </head>
 <body style="background-color:#A1A46D;">
-    <h1>部署工具</h1>
-    <button href="" onclick="java.sayHello()">sayHello</button>
-    <div id="log" style="width:100%"></div>
+<div id="app">
+    <el-button @click="visible = true">按钮</el-button>
+    <el-dialog v-model="visible" title="Hello world">
+        <p>欢迎使用 Element</p>
+    </el-dialog>
+</div>
 
 
 
 
     <script src="js/debug.js1"></script>
-    <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-    <script src="js/index.js"></script>
+<!--    <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>-->
+    <script src="//cdn.bootcss.com/vue/2.1.6/vue.min.js"></script>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+    new Vue({
+      el: '#app',
+      data: function(){
+        return { visible: false }
+      }
+    })
+  </script>
+    <script src="js/app.js"></script>
 </body>
 </html>
